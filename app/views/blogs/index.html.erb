@@ -1,0 +1,22 @@
+<h1>
+  Blogs
+  <%= link_to "New Blog", "/blogs/new", class: "btn btn-primary float-end" %>
+</h1>
+<div class="row">
+  <% @blogs.each do |blog| %>
+    <div class="col-md-4">
+      <div class="card" style="margin: 15px;">
+        <% if blog.image? %>
+          <%= link_to (image_tag(blog.image.url, alt: "Image", class: "card-img-top", style: "height: 200px;")), blog %>
+        <% else %>
+          <%= image_tag("blog.svg", alt: "Image", class: "card-img-top", style: "height: 200px;") %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= blog.title %></h5>
+          <p class="card-text"><%= blog.description.truncate(100) %></p>
+          <div class="card-title"><%= blog.user.email %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

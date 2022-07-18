@@ -1,0 +1,29 @@
+<%= form_with model: blog do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %><br>
+    <%= form.text_field :title, class: "form-control" %>
+    <% blog.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %><br>
+    <%= form.text_area :description, class: "form-control" %><br>
+    <% blog.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :image, class: "form-label"%><br>
+    <%= form.file_field :image, class: "form-control" %><br>
+    <% blog.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

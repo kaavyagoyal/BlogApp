@@ -1,0 +1,25 @@
+<h1>
+  <%= @blog.title %>
+  <div class="float-end">
+    <%= link_to "Edit", edit_blog_path(@blog), class: "btn btn-primary" %>
+    <%= link_to "Delete", blog_path(@blog), class: "btn btn-primary", data: {method: :delete, confirm: "Are you sure?"} %>
+  </div>
+</h1>
+<hr>
+
+<div class="row">
+ <div class="col-md-6">
+   <p> <%= image_tag(@blog.image.url, alt: 'Image', class: "img-fluid") if @blog.image? %></p>
+ </div>
+ <div class="col-md-6">
+   <p><%= @blog.description %></p>
+ </div>
+</div>
+ <hr>
+ <h3>Comments</h3>
+
+ <%= render "comments/form" %>
+ <br><br>
+ <div id="comments">
+   <%= render "comments/comments", blog: @blog %>
+ </div>
