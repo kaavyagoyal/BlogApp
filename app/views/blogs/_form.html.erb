@@ -15,7 +15,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :image, class: "form-label"%><br>
     <%= form.file_field :image, class: "form-control" %><br>
     <% blog.errors.full_messages_for(:image).each do |message| %>

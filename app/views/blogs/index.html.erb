@@ -2,6 +2,7 @@
   Blogs
   <%= link_to "New Blog", "/blogs/new", class: "btn btn-primary float-end" %>
 </h1>
+
 <div class="row">
   <% @blogs.each do |blog| %>
     <div class="col-md-4">
@@ -17,6 +18,16 @@
           <div class="card-title"><%= blog.user.email %></div>
         </div>
       </div>
-    </div>
+
+      <%= link_to like_blog_path(blog), class: "btn btn-info Like", remote: true do %>
+       <span class="fa fa-thumbs-up text-white" aria-hidden="true"></span>
+       <span class="badge"><%= blog.get_upvotes.size %></span>
+      <% end %>
+
+      <%= link_to dislike_blog_path(blog), class: "btn btn-info DisLike", remote: true do %>
+       <span class="fa fa-thumbs-down text-white" aria-hidden="true"></span>
+       <span class="badge"><%= blog.get_downvotes.size %></span>
+      <% end %>
+   </div>
   <% end %>
 </div>

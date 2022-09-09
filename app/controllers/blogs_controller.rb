@@ -48,18 +48,40 @@ respond_to :js, :html, :json
      redirect_to root_path
   end
 
-  def like
+  # def like
+  #   @blog = Blog.find(params[:id])
+  #   if params[:format] == 'like'
+  #     @blog.liked_by current_user
+  #   elseif params:[:format] == 'unlike'
+  #   @blog.unliked_by current_user
+  #   end
+  # end
+
+  def upvote
     @blog = Blog.find(params[:id])
-    if params[:format] == 'like'
-      @blog.liked_by current_user
-    elseif params:[:format] == 'unlike'
-      @blog.unliked_by current_user
-    end
+    @blog.upvote_from current_user
+    redirect_to blogs_path
   end
 
+  def downvote
+    @blog = Blog.find(params[:id])
+    @blog.downvote_from current_user
+    redirect_to blogs_path
+    
+  end
+
+  # def upvote
+  #   @blog = Blog.find(params[:id])
+  #   @blog.upvote_by current_user
+  #   respond_to do |format|
+  #     format.js
+  # end 
+# end
   private
    def blog_params  
-     params.require(:blog).permit(:title, :description, :image)
+     params.require(:blog).permit(:title, :description, :image,)
    end 
 
  end
+
+
