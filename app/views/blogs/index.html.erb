@@ -16,8 +16,6 @@
           <h5 class="card-title"><%= blog.title %></h5>
           <p class="card-text"><%= blog.description.truncate(100) %></p>
           <div class="card-title"><%= blog.user.email %></div>
-        </div>
-      </div>
 
       <%= link_to like_blog_path(blog), class: "btn btn-info Like", remote: true do %>
        <span class="fa fa-thumbs-up text-white" aria-hidden="true"></span>
@@ -28,6 +26,8 @@
        <span class="fa fa-thumbs-down text-white" aria-hidden="true"></span>
        <span class="badge"><%= blog.get_downvotes.size %></span>
       <% end %>
+    </div>
+  </div>
    </div>
   <% end %>
 </div>
