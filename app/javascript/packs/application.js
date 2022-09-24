@@ -19,14 +19,14 @@ import 'bootstrap'
 // const imagePath = (name) => images(name, true)
 
 
-// success: function(){ 
-//     $(".dislikeAction").hide().fadeIn(); 
-//     var dislikes = parseInt($(".dislikeAction").text());  
-//     $(".dislikeAction").text(dislikes+1)
-// }
+success: function(){ 
+    $(".dislikeAction").hide().fadeIn(); 
+    var dislikes = parseInt($(".dislikeAction").text());  
+    $(".dislikeAction").text(dislikes+1)
+}
 
-// success: function(){ 
-//     $(".likeAction").hide().fadeIn(); 
-//     var likes = parseInt($(".likeAction").text());  
-//     $(".likeAction").text(likes+1)
-// }
+success: function(){ 
+    $(".likeAction").hide().fadeIn(); 
+    var likes = parseInt($(".likeAction").text());  
+    $(".likeAction").text(likes+1)
+}
