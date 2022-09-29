@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 root "blogs#index"
   resources :blogs do
    member do 
-    get "like" => "blogs#upvote" 
-    get "dislike" => "blogs#downvote"
+    get "like" => "blogs#like" 
+    get "dislike" => "blogs#dislike"
   end
 end
   resources :comments

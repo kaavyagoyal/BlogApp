@@ -1,2 +1,2 @@
-:plain
-  $('#like-count').html("#{@blog.get_upvotes.size}");
+$("#like_<%= @blog.id %>").html("<%= @blog.get_upvotes.size %>");
+$("#dislike_<%= @blog.id %>").html("<%= @blog.get_downvotes.size %>");

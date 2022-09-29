@@ -15,16 +15,16 @@
         <div class="card-body">
           <h5 class="card-title"><%= blog.title %></h5>
           <p class="card-text"><%= blog.description.truncate(100) %></p>
-          <div class="card-title"><%= blog.user.email %></div>
+          <div class="card-title"><%= blog.user.email %></div> 
 
       <%= link_to like_blog_path(blog), class: "btn btn-info Like", remote: true do %>
        <span class="fa fa-thumbs-up text-white" aria-hidden="true"></span>
-       <span class="badge"><%= blog.get_upvotes.size %></span>
+       <span class="badge" id="like_<%= blog.id %>"><%= blog.get_upvotes.size %></span>
       <% end %>
 
       <%= link_to dislike_blog_path(blog), class: "btn btn-info DisLike", remote: true do %>
        <span class="fa fa-thumbs-down text-white" aria-hidden="true"></span>
-       <span class="badge"><%= blog.get_downvotes.size %></span>
+       <span class="badge" id="dislike_<%= blog.id %>"><%= blog.get_downvotes.size %></span>
       <% end %>
     </div>
   </div>

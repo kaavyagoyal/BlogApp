@@ -57,17 +57,22 @@ respond_to :js, :html, :json
   #   end
   # end
 
-  def upvote
+  def like
     @blog = Blog.find(params[:id])
-    @blog.upvote_from current_user
-    redirect_to blogs_path
+    @blog.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.js { render layout: false }
+    end
   end
 
-  def downvote
+  def dislike
     @blog = Blog.find(params[:id])
-    @blog.downvote_from current_user
-    redirect_to blogs_path
-    
+    @blog.disliked_by current_user
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.js { render layout: false }
+    end
   end
 
   # def upvote
@@ -77,11 +82,9 @@ respond_to :js, :html, :json
   #     format.js
   # end 
 # end
+
   private
    def blog_params  
      params.require(:blog).permit(:title, :description, :image,)
    end 
-
- end
-
-
+end
